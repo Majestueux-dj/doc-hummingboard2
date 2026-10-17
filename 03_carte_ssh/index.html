@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Majestueux DJOSSOU" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>3. Travail sur la carte (SSH) - PRISE EN MAIN DU PROJET</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "3. Travail sur la carte (SSH)";
+        var mkdocs_page_input_path = "03_carte_ssh.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> PRISE EN MAIN DU PROJET
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Rechercher des documents" aria-label="Rechercher des documents" title="Tapez vos mots clés ici" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Menu de navigation">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Accueil</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../01_principe/">1. Principe du projet</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../02_methode/">2. Méthode de travail</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">3. Travail sur la carte (SSH)</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1-pourquoi-je-suis-passer-directement-sur-la-carte">1. Pourquoi je suis passer directement sur la carte</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-mise-en-place-du-serveur-ssh-sur-la-carte">2. Mise en place du serveur SSH sur la carte</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-pour-se-connecter-depuis-le-pc">3. Pour se connecter depuis le PC</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4-mettre-le-projet-et-lenregistrement-sur-la-carte-a-changer-mais-jen-parle-puisquil-faisait-partie-de-la-liste-de-ce-que-jai-effectue">4. Mettre le projet et l'enregistrement sur la carte (À changer mais j'en parle puisqu'il faisait partie de la liste de ce que j'ai effectué)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#5-problemes-rencontres-et-solutions">5. Problèmes rencontrés et solutions</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#espace-disque-insuffisant">Espace disque insuffisant</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../04_my_custom_msgs/">4. my_custom_msgs</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../05_sidescan_processing/">5. sidescan_processing</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../06_cable_detection_cv/">6. cable_detection_cv</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../07_suite/">7. Bilan et suite</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Menu de navigation sur mobile">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">PRISE EN MAIN DU PROJET</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Documents"></a></li>
+      <li class="breadcrumb-item active">3. Travail sur la carte (SSH)</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="travail-sur-la-carte-ssh">Travail sur la carte (SSH)</h1>
+<p>À partir du module <code>sidescan_processing</code>, le travail ne se fait plus sur le PC mais directement sur la HummingBoard, depuis le PC, par une connexion SSH.</p>
+<h2 id="1-pourquoi-je-suis-passer-directement-sur-la-carte">1. Pourquoi je suis passer directement sur la carte</h2>
+<table>
+<thead>
+<tr>
+<th>Sur le PC</th>
+<th>Sur la carte</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ubuntu 26.04 + ROS 2 Lyrical</td>
+<td>Conteneur Ubuntu 22.04 + ROS 2 Humble</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-mise-en-place-du-serveur-ssh-sur-la-carte">2. Mise en place du serveur SSH sur la carte</h2>
+<p>Côté Debian : </p>
+<div class="highlight"><pre><span></span><code>apt<span class="w"> </span>update
+apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>openssh-server
+update-rc.d<span class="w"> </span>ssh<span class="w"> </span>defaults<span class="w">      </span><span class="c1"># Pour le démarrage automatique à chaque boot</span>
+</code></pre></div>
+<h2 id="3-pour-se-connecter-depuis-le-pc">3. Pour se connecter depuis le PC</h2>
+<p>La carte étant sur le même réseau Wi-Fi que le PC. J'obtiens son adresse IP avec <code>ip a</code> et je regarde l'ip attribué par le réseau sans fil sur la carte.
+Ici puisque je travaille directement sur une box personnelle l'ip attribué est le 192.168.1.81</p>
+<div class="highlight"><pre><span></span><code>ssh<span class="w"> </span>root@192.168.1.81
+</code></pre></div>
+<p>Une fois connecté, on entre dans le conteneur ROS 2 avec l'alias <code>ros</code>
+(<code>docker exec -it project_ros bash</code>, voir la première partie). Chaque fenêtre SSH + <code>ros</code>
+donne un terminal indépendant : un pour le nœud, un pour le bag, un pour faire les vérifications.</p>
+<div class="mermaid">flowchart LR
+    PC["PC&lt;br/&gt;terminal 1, 2, 3"] --&gt;|ssh| D["Debian&lt;br/&gt;(carte)"] --&gt;|ros| C["Conteneur&lt;br/&gt;ROS 2 Humble"]</div>
+<h2 id="4-mettre-le-projet-et-lenregistrement-sur-la-carte-a-changer-mais-jen-parle-puisquil-faisait-partie-de-la-liste-de-ce-que-jai-effectue">4. Mettre le projet et l'enregistrement sur la carte (À changer mais j'en parle puisqu'il faisait partie de la liste de ce que j'ai effectué)</h2>
+<p>Les fichiers sont copiés du PC vers le dossier partagé <code>/root/project/</code> (= <code>/project/</code>
+dans le conteneur) :</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># depuis le PC</span>
+scp<span class="w"> </span>-r<span class="w"> </span>~/Desktop/Projet_M2/ros2_ws_sss<span class="w"> </span>root@192.168.1.81:/root/project/
+scp<span class="w"> </span>-r<span class="w"> </span>~/Desktop/Projet_M2/cable_test_20261012_203459<span class="w"> </span>root@192.168.1.81:/root/project/
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Dossier dans le conteneur</th>
+<th>Contenu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/project/ros2_ws_sss/</code></td>
+<td>Projet à prendre à main</td>
+</tr>
+<tr>
+<td><code>/project/ros2_ws_sss_project/src/</code></td>
+<td>Mon workspace, un package copié à la fois</td>
+</tr>
+<tr>
+<td><code>/project/cable_test_20261012_203459/</code></td>
+<td>L'enregistrement (5,3 Go)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-problemes-rencontres-et-solutions">5. Problèmes rencontrés et solutions</h2>
+<h3 id="espace-disque-insuffisant">Espace disque insuffisant</h3>
+<p>L'image Debian a été générée avec un rootfs de 8 Go, trop petit pour le bag de 5,3 Go.
+La partition a été ensuite agrandie à toute la microSD pour 32 Go :</p>
+<div class="highlight"><pre><span></span><code>lsblk<span class="w">                         </span><span class="c1"># mmcblk1p1 = boot, mmcblk1p2 = rootfs</span>
+growpart<span class="w"> </span>/dev/mmcblk1<span class="w"> </span><span class="m">2</span><span class="w">       </span><span class="c1"># agrandit la partition 2</span>
+resize2fs<span class="w"> </span>/dev/mmcblk1p2<span class="w">      </span><span class="c1"># agrandit le système de fichiers</span>
+df<span class="w"> </span>-h<span class="w"> </span>/<span class="w">                       </span><span class="c1"># On doit voir que la partition a augmenté</span>
+</code></pre></div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Navigation de pied de page">
+        <a href="../02_methode/" class="btn btn-neutral float-left" title="2. Méthode de travail"><span class="icon icon-circle-arrow-left"></span> Précédent</a>
+        <a href="../04_my_custom_msgs/" class="btn btn-neutral float-right" title="4. my_custom_msgs">Suivant <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Générée avec <a href="https://www.mkdocs.org/">MkDocs</a> avec un <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a> fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../02_methode/" style="color: #fcfcfc">&laquo; Précédent</a></span>
+    
+    
+      <span><a href="../04_my_custom_msgs/" style="color: #fcfcfc">Suivant &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

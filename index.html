@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="None" /><meta name="author" content="Majestueux DJOSSOU" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>PRISE EN MAIN DU PROJET</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Accueil";
+        var mkdocs_page_input_path = "index.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="." class="icon icon-home"> PRISE EN MAIN DU PROJET
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Rechercher des documents" aria-label="Rechercher des documents" title="Tapez vos mots clés ici" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Menu de navigation">
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Accueil</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#chaine-de-traitement">Chaîne de traitement</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#avancement-semaine-du-12102026">Avancement (semaine du 12/10/2026)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#pages">Pages</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="01_principe/">1. Principe du projet</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="02_methode/">2. Méthode de travail</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="03_carte_ssh/">3. Travail sur la carte (SSH)</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="04_my_custom_msgs/">4. my_custom_msgs</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="05_sidescan_processing/">5. sidescan_processing</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="06_cable_detection_cv/">6. cable_detection_cv</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="07_suite/">7. Bilan et suite</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Menu de navigation sur mobile">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href=".">PRISE EN MAIN DU PROJET</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="." class="icon icon-home" aria-label="Documents"></a></li>
+      <li class="breadcrumb-item active">Accueil</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="prise-en-main-du-projet">Prise en main du projet</h1>
+<p>Cette documentation est la deuxième partie du travail. La première partie (installation de Debian, du Wi-Fi, de Docker et de ROS 2 sur la HummingBoard) est décrite dans la documentation HUMMINGBOARD 8P EDGE AI.</p>
+<p>Nous avons un AUV (robot sous-marin autonome), simulé dans Unity, qui suit un câble posé au fond grâce à son sonar à balayage latéral.</p>
+<h2 id="chaine-de-traitement">Chaîne de traitement</h2>
+<div class="mermaid">flowchart LR
+    U["Unity&lt;br/&gt;(simulateur)"] --&gt;|pings sonar| W["waterfall_node&lt;br/&gt;image waterfall"]
+    W --&gt;|image| D["cable_detector_cv&lt;br/&gt;position du câble"]
+    D --&gt;|CableDetection| F["cable_follower&lt;br/&gt;cap à suivre"]
+    F --&gt;|AUVCommand| U</div>
+<h2 id="avancement-semaine-du-12102026">Avancement (semaine du 12/10/2026)</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Package</th>
+<th>Rôle</th>
+<th>État</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><code>my_custom_msgs</code></td>
+<td>Formats des messages échangés</td>
+<td>Compilé et vérifié</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>sidescan_processing</code></td>
+<td>Pings (image waterfall)</td>
+<td>Compilé et testé sur la carte</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>cable_detection_cv</code></td>
+<td>Image (position du câble)</td>
+<td>Compilé sur la carte, câble détecté (≈ 2,9 Hz)</td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>cable_follower</code></td>
+<td>Position du câble</td>
+<td>Compilé pour le suivi</td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>my_launcher</code></td>
+<td>Lance toute la chaîne</td>
+<td>Pas encore testé</td>
+</tr>
+<tr>
+<td>—</td>
+<td><code>ROS-TCP-Endpoint</code></td>
+<td>Pont Unity et ROS</td>
+<td>Pas nécessaire pour l'instant</td>
+</tr>
+<tr>
+<td>—</td>
+<td><code>cable_detection_ai</code></td>
+<td>Détection par IA</td>
+<td>Fallait que j'active la carte graphique</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Changement d'environnement</p>
+<p>Les deux premiers packages ont été étudiés sur le PC avec un environnement (ROS 2 Lyrical).
+À partir de <code>sidescan_processing</code>, j'ai décidé de continuer tout le travail directement sur la carte en SSH avec un environnement (ROS 2 Humble), voir <a href="03_carte_ssh/">Travail sur la carte (SSH)</a>.</p>
+</div>
+<h2 id="pages">Pages</h2>
+<ol>
+<li><a href="01_principe/">Principe du projet</a> : sonar latéral, image waterfall, chaîne ROS 2</li>
+<li><a href="02_methode/">Méthode de travail</a> : copier, lire, compiler, vérifier avec l'enregistrement</li>
+<li><a href="03_carte_ssh/">Travail sur la carte (SSH)</a> : pourquoi et comment</li>
+<li><a href="04_my_custom_msgs/">my_custom_msgs</a> : les messages</li>
+<li><a href="05_sidescan_processing/">sidescan_processing</a> : construction de l'image</li>
+<li><a href="06_cable_detection_cv/">cable_detection_cv</a> : détection du câble</li>
+<li><a href="07_suite/">Suite</a></li>
+</ol>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Navigation de pied de page">
+        <a href="01_principe/" class="btn btn-neutral float-right" title="1. Principe du projet">Suivant <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Générée avec <a href="https://www.mkdocs.org/">MkDocs</a> avec un <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a> fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+      <span><a href="01_principe/" style="color: #fcfcfc">Suivant &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js"></script>
+      <script src="search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.6.1
+Build Date UTC : 2026-10-17 16:04:19.644490+00:00
+-->

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Majestueux DJOSSOU" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>1. Principe du projet - PRISE EN MAIN DU PROJET</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "1. Principe du projet";
+        var mkdocs_page_input_path = "01_principe.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> PRISE EN MAIN DU PROJET
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Rechercher des documents" aria-label="Rechercher des documents" title="Tapez vos mots clés ici" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Menu de navigation">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Accueil</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">1. Principe du projet</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1-le-sonar-a-balayage-lateral-sss">1. Le sonar à balayage latéral (SSS)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-la-chaine-de-traitement">2. La chaîne de traitement</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-le-pont-unity-vers-ros">3. Le pont Unity vers ROS</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../02_methode/">2. Méthode de travail</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../03_carte_ssh/">3. Travail sur la carte (SSH)</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../04_my_custom_msgs/">4. my_custom_msgs</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../05_sidescan_processing/">5. sidescan_processing</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../06_cable_detection_cv/">6. cable_detection_cv</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../07_suite/">7. Bilan et suite</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Menu de navigation sur mobile">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">PRISE EN MAIN DU PROJET</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Documents"></a></li>
+      <li class="breadcrumb-item active">1. Principe du projet</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="principe-du-projet">Principe du projet</h1>
+<h2 id="1-le-sonar-a-balayage-lateral-sss">1. Le sonar à balayage latéral (SSS)</h2>
+<ul>
+<li>Le sonar émet une impulsion sonore vers la gauche (bâbord) et vers la droite (tribord).</li>
+<li>Il écoute les échos : plus un écho revient tard, plus l'objet est loin ;
+  et plus il est fort, plus l'objet réfléchit le son (le câble lui réfléchit fort).</li>
+<li>Une émission = un ping = une ligne d'intensités (0 à 255) côté gauche et côté droit.</li>
+<li>Juste sous l'AUV, il n'y a que de l'eau : c'est la colonne de l'eau,
+  une bande sombre au centre de l'image.</li>
+</ul>
+<p>En empilant les pings au fur et à mesure que l'AUV avance, on obtient une image :
+ici le waterfall. Le câble y apparaît comme une ligne.</p>
+<p>Si on sait où est la ligne, on sait où est le câble par rapport à l'AUV, et on peut corriger le cap pour le suivre.</p>
+<h2 id="2-la-chaine-de-traitement">2. La chaîne de traitement</h2>
+<table>
+<thead>
+<tr>
+<th>Étape</th>
+<th>Ce qui entre</th>
+<th>Ce qui sort</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unity</td>
+<td>—</td>
+<td>un ping sonar</td>
+</tr>
+<tr>
+<td><code>waterfall_node</code></td>
+<td>pings</td>
+<td>image waterfall</td>
+</tr>
+<tr>
+<td><code>cable_detector_cv</code></td>
+<td>image</td>
+<td>position et angle du câble</td>
+</tr>
+<tr>
+<td><code>cable_follower</code></td>
+<td>position du câble + le cap actuel</td>
+<td>cap et vitesse à suivre</td>
+</tr>
+<tr>
+<td>Unity</td>
+<td>consigne</td>
+<td>l'AUV tourne</td>
+</tr>
+</tbody>
+</table>
+<p>En gros c'est une boucle fermée : l'AUV tourne, le sonar voit le câble autrement. Il y a donc une nouvelle détection et nouvelle consigne.</p>
+<h2 id="3-le-pont-unity-vers-ros">3. Le pont Unity vers ROS</h2>
+<p>Comme Unity ne parle pas le protocole de ROS 2. Un pont TCP relie les deux :</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>ROS-TCP-Connector</th>
+<th>ROS-TCP-Endpoint</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Où</td>
+<td>Dans Unity (plugin C#)</td>
+<td>Côté ROS (nœud Python)</td>
+</tr>
+<tr>
+<td>Rôle</td>
+<td>Envoie les données de la simulation, reçoit les commandes</td>
+<td>Republie les données sur des topics ROS et renvoie les commandes à Unity</td>
+</tr>
+</tbody>
+</table>
+<p>Ce qui passe sur le pont :</p>
+<ul>
+<li>Unity vers ROS : <code>SideScanSonar</code> sur <code>/unity_simulation/side_scan_data</code> ;</li>
+<li>ROS vers Unity : <code>AUVCommand</code> sur <code>/auv/offboard_cmd</code>, et le mode sur <code>/auv/set_mode</code>.</li>
+</ul>
+<p>!!! "Nous n'avons pas besoin de Unity pour l'instant"
+    L'enregistrement <code>cable_test_20261012_203459</code> (<code>ros2 bag</code>) rejoue les messages tels
+    qu'ils avaient été publiés : il remplace à la fois Unity et le pont.
+    Il contient <code>/unity_simulation/side_scan_data</code> et <code>/sidescan/waterfall</code>.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Navigation de pied de page">
+        <a href=".." class="btn btn-neutral float-left" title="Accueil"><span class="icon icon-circle-arrow-left"></span> Précédent</a>
+        <a href="../02_methode/" class="btn btn-neutral float-right" title="2. Méthode de travail">Suivant <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Générée avec <a href="https://www.mkdocs.org/">MkDocs</a> avec un <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a> fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Précédent</a></span>
+    
+    
+      <span><a href="../02_methode/" style="color: #fcfcfc">Suivant &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

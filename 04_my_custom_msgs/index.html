@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Majestueux DJOSSOU" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>4. my_custom_msgs - PRISE EN MAIN DU PROJET</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "4. my_custom_msgs";
+        var mkdocs_page_input_path = "04_my_custom_msgs.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> PRISE EN MAIN DU PROJET
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Rechercher des documents" aria-label="Rechercher des documents" title="Tapez vos mots clés ici" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Menu de navigation">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Accueil</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../01_principe/">1. Principe du projet</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../02_methode/">2. Méthode de travail</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../03_carte_ssh/">3. Travail sur la carte (SSH)</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">4. my_custom_msgs</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#les-messages-du-projet">les messages du projet</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#1-principe">1. Principe</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-les-4-messages">2. Les 4 messages</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#sidescansonar-entree-de-la-chaine">SideScanSonar : entrée de la chaîne</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#cabledetection-le-cable-est-ici">CableDetection : le câble est ici</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#auvcommand-la-consigne-sortie-de-la-chaine">AUVCommand : la consigne (sortie de la chaîne)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#cablefollowerdebug-linterieur-du-guidage">CableFollowerDebug : l'intérieur du guidage</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-les-fichiers-de-compilation">3. Les fichiers de compilation</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4-verification">4. Vérification</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../05_sidescan_processing/">5. sidescan_processing</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../06_cable_detection_cv/">6. cable_detection_cv</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../07_suite/">7. Bilan et suite</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Menu de navigation sur mobile">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">PRISE EN MAIN DU PROJET</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Documents"></a></li>
+      <li class="breadcrumb-item active">4. my_custom_msgs</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="my_custom_msgs">my_custom_msgs</h1>
+<h2 id="les-messages-du-projet">les messages du projet</h2>
+<h2 id="1-principe">1. Principe</h2>
+<p>Pour que deux nœuds se parlent, ils doivent être d'accord sur le format des données :
+quels champs, de quel type. Ce package définit ces formats.</p>
+<ul>
+<li>À la compilation, ROS génère automatiquement les classes C++ et Python correspondantes.</li>
+<li>Tous les autres packages en dépendent : il est compilé en premier.</li>
+</ul>
+<h2 id="2-les-4-messages">2. Les 4 messages</h2>
+<table>
+<thead>
+<tr>
+<th>Message</th>
+<th>Topic</th>
+<th>Publié par</th>
+<th>Lu par</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SideScanSonar</code></td>
+<td><code>/unity_simulation/side_scan_data</code></td>
+<td>Unity</td>
+<td><code>waterfall_node</code>, <code>cable_follower</code></td>
+</tr>
+<tr>
+<td><code>CableDetection</code></td>
+<td><code>/cable_detection</code></td>
+<td><code>cable_detector_cv</code> (ou <code>_ai</code>)</td>
+<td><code>cable_follower</code></td>
+</tr>
+<tr>
+<td><code>AUVCommand</code></td>
+<td><code>/auv/offboard_cmd</code></td>
+<td><code>cable_follower</code></td>
+<td>Unity</td>
+</tr>
+<tr>
+<td><code>CableFollowerDebug</code></td>
+<td><code>/cable_follower/guidance_debug</code></td>
+<td><code>cable_follower</code></td>
+<td>affichage (<code>rqt_plot</code>)</td>
+</tr>
+</tbody>
+</table>
+<p>Entre <code>waterfall_node</code> et le détecteur, l'image est un message standard de ROS
+(<code>sensor_msgs/Image</code>).</p>
+<h3 id="sidescansonar-entree-de-la-chaine"><code>SideScanSonar</code> : entrée de la chaîne</h3>
+<table>
+<thead>
+<tr>
+<th>Champ</th>
+<th>Signification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>range</code>, <code>range_resolution</code></td>
+<td>Portée (m) et mètres par case pour la conversion pixels en mètres</td>
+</tr>
+<tr>
+<td><code>port_data</code>, <code>starboard_data</code></td>
+<td>Intensités 0–255 à gauche / à droite, du proche au loin</td>
+</tr>
+<tr>
+<td><code>pos_x</code>, <code>pos_y</code>, <code>pos_z</code></td>
+<td>Position de l'AUV dans Unity</td>
+</tr>
+<tr>
+<td><code>altitude</code>, <code>depth</code></td>
+<td>Hauteur au-dessus du fond, profondeur</td>
+</tr>
+<tr>
+<td><code>pitch</code>, <code>roll</code>, <code>heading</code></td>
+<td>Attitude et cap en degrés</td>
+</tr>
+<tr>
+<td><code>speed</code></td>
+<td>La Vitesse en m/s</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cabledetection-le-cable-est-ici"><code>CableDetection</code> : le câble est ici</h3>
+<table>
+<thead>
+<tr>
+<th>Champ</th>
+<th>Signification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>header</code></td>
+<td>Horodatage recopié de l'image source (mesure du retard de la chaîne)</td>
+</tr>
+<tr>
+<td><code>detected</code>, <code>confidence</code></td>
+<td>Câble trouvé ou non, et confiance</td>
+</tr>
+<tr>
+<td><code>source</code></td>
+<td><code>SOURCE_CV</code> (0) ou <code>SOURCE_AI</code> (1)</td>
+</tr>
+<tr>
+<td><code>p1</code>, <code>p2</code></td>
+<td>Extrémités du segment dans l'image (pixels)</td>
+</tr>
+<tr>
+<td><code>angle_rad</code></td>
+<td>Angle du câble par rapport à la verticale de l'image</td>
+</tr>
+<tr>
+<td><code>lateral_offset_px</code></td>
+<td>Distance AUV → câble en pixels (+ = tribord)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="auvcommand-la-consigne-sortie-de-la-chaine"><code>AUVCommand</code> : la consigne (sortie de la chaîne)</h3>
+<table>
+<thead>
+<tr>
+<th>Champ</th>
+<th>Signification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>heading_deg</code></td>
+<td>Cap à prendre (degrés)</td>
+</tr>
+<tr>
+<td><code>speed_mps</code></td>
+<td>Vitesse voulue (m/s)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cablefollowerdebug-linterieur-du-guidage"><code>CableFollowerDebug</code> : l'intérieur du guidage</h3>
+<p>Distance au câble en mètres, écart à la distance visée, cap du câble, cap envoyé, côté suivi,
+mode actif. Aucun nœud ne le lit : il sert à tracer des courbes pour régler le guidage.</p>
+<h2 id="3-les-fichiers-de-compilation">3. Les fichiers de compilation</h2>
+<table>
+<thead>
+<tr>
+<th>Fichier</th>
+<th>Élément clé</th>
+<th>Rôle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>package.xml</code></td>
+<td><code>rosidl_default_generators</code></td>
+<td>L'outil qui transforme les <code>.msg</code> en code</td>
+</tr>
+<tr>
+<td></td>
+<td><code>&lt;member_of_group&gt;rosidl_interface_packages&lt;/member_of_group&gt;</code></td>
+<td>Déclare « ce package fournit des messages »</td>
+</tr>
+<tr>
+<td><code>CMakeLists.txt</code></td>
+<td><code>rosidl_generate_interfaces(...)</code></td>
+<td>Génère le code des 4 messages</td>
+</tr>
+</tbody>
+</table>
+<p>Un <code>SideScanSonar.msg</code> devient la classe C++ <code>my_custom_msgs::msg::SideScanSonar</code>,
+incluse avec <code>#include &lt;my_custom_msgs/msg/side_scan_sonar.hpp&gt;</code>.</p>
+<h2 id="4-verification">4. Vérification</h2>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>interface<span class="w"> </span>package<span class="w"> </span>my_custom_msgs<span class="w">                    </span><span class="c1"># liste les 4 messages</span>
+ros2<span class="w"> </span>interface<span class="w"> </span>show<span class="w"> </span>my_custom_msgs/msg/CableDetection<span class="w">    </span><span class="c1"># affiche un message</span>
+ros2<span class="w"> </span>topic<span class="w"> </span>hz<span class="w"> </span>/unity_simulation/side_scan_data<span class="w">           </span><span class="c1"># avec le bag lancé</span>
+</code></pre></div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Navigation de pied de page">
+        <a href="../03_carte_ssh/" class="btn btn-neutral float-left" title="3. Travail sur la carte (SSH)"><span class="icon icon-circle-arrow-left"></span> Précédent</a>
+        <a href="../05_sidescan_processing/" class="btn btn-neutral float-right" title="5. sidescan_processing">Suivant <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Générée avec <a href="https://www.mkdocs.org/">MkDocs</a> avec un <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a> fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../03_carte_ssh/" style="color: #fcfcfc">&laquo; Précédent</a></span>
+    
+    
+      <span><a href="../05_sidescan_processing/" style="color: #fcfcfc">Suivant &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

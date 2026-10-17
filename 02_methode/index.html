@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Majestueux DJOSSOU" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>2. Méthode de travail - PRISE EN MAIN DU PROJET</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "2. M\u00e9thode de travail";
+        var mkdocs_page_input_path = "02_methode.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> PRISE EN MAIN DU PROJET
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Rechercher des documents" aria-label="Rechercher des documents" title="Tapez vos mots clés ici" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Menu de navigation">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Accueil</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../01_principe/">1. Principe du projet</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">2. Méthode de travail</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1-les-etapes-pour-chaque-package">1. Les étapes pour chaque package</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-ordre-de-lecture">2. Ordre de lecture</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-preparer-un-terminal">3. Préparer un terminal</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4-rejouer-lenregistrement">4. Rejouer l'enregistrement</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#5-quelques-commandes-de-lancement-et-verification">5. Quelques Commandes de lancement et vérification</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../03_carte_ssh/">3. Travail sur la carte (SSH)</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../04_my_custom_msgs/">4. my_custom_msgs</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../05_sidescan_processing/">5. sidescan_processing</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../06_cable_detection_cv/">6. cable_detection_cv</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../07_suite/">7. Bilan et suite</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Menu de navigation sur mobile">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">PRISE EN MAIN DU PROJET</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Documents"></a></li>
+      <li class="breadcrumb-item active">2. Méthode de travail</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="methode-de-travail">Méthode de travail</h1>
+<p>Le projet est reconstruit package par package dans mon workspace personnel (<code>ros2_ws_sss_project/</code>), dans l'ordre
+des dépendances puisque chaque package a besoin du précédent.</p>
+<h2 id="1-les-etapes-pour-chaque-package">1. Les étapes pour chaque package</h2>
+<ol>
+<li>Je copie le package dans mon workspace ;</li>
+<li>Je lis chaque fichier afin de comprendre son rôle ;</li>
+<li>Je compile ;</li>
+<li>Je vérifie ensuite avec l'enregistrement ;</li>
+<li>Je prends ensuite des notes de ce qui a été observé, si c'est le cas.</li>
+</ol>
+<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>-r<span class="w"> </span>/project/ros2_ws_sss/src/&lt;package&gt;<span class="w"> </span>/project/ros2_ws_sss_project/src/
+<span class="nb">cd</span><span class="w"> </span>/project/ros2_ws_sss_project
+<span class="nb">source</span><span class="w"> </span>/opt/ros/humble/setup.bash
+colcon<span class="w"> </span>build
+<span class="nb">source</span><span class="w"> </span>install/setup.bash
+</code></pre></div>
+<h2 id="2-ordre-de-lecture">2. Ordre de lecture</h2>
+<div class="mermaid">flowchart LR
+    A[my_custom_msgs] --&gt; B[sidescan_processing] --&gt; C[cable_detection_cv] --&gt; D[cable_follower] --&gt; E[my_launcher]</div>
+<p><code>my_custom_msgs</code> est compilé en premier : tous les autres packages utilisent ses messages.</p>
+<h2 id="3-preparer-un-terminal">3. Préparer un terminal</h2>
+<div class="admonition note">
+<p class="admonition-title">« Sourcer »</p>
+<p><code>source &lt;fichier&gt;/setup.bash</code> indique au terminal où trouver ROS 2 et nos packages.
+Cela vaut pour un terminal, pas pour un dossier : chaque nouvelle fenêtre doit le refaire.</p>
+</div>
+<p>Sur la carte (dans le conteneur) :</p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>/opt/ros/humble/setup.bash
+<span class="nb">cd</span><span class="w"> </span>/project/ros2_ws_sss_project
+<span class="nb">source</span><span class="w"> </span>install/setup.bash
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Plus besoin de sourcer à la main</p>
+<p>Pour ne plus retaper ces lignes, elles sont ajoutées au <code>~/.bashrc</code> du conteneur :
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;source /opt/ros/humble/setup.bash&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;source /project/ros2_ws_sss_project/install/setup.bash&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+</code></pre></div>
+Chaque nouveau terminal ouvert avec <code>ros</code> est alors prêt directement.
+Après un <code>colcon build</code> qui ajoute un nouveau package, refaire
+<code>source install/setup.bash</code> dans les terminaux déjà ouverts.</p>
+</div>
+<p>Lorsqu'un terminal n'est pas sourcé on a :
+<code>The message type 'my_custom_msgs/msg/SideScanSonar' is invalid</code> ou
+<code>package 'my_custom_msgs' not found</code> qui s'affiche.</p>
+<h2 id="4-rejouer-lenregistrement">4. Rejouer l'enregistrement</h2>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>bag<span class="w"> </span>play<span class="w"> </span>&lt;chemin&gt;/cable_test_20261012_203459/<span class="w"> </span><span class="se">\ </span>
+<span class="w">    </span>--loop<span class="w"> </span>--topics<span class="w"> </span>/unity_simulation/side_scan_data
+</code></pre></div>
+<h2 id="5-quelques-commandes-de-lancement-et-verification">5. Quelques Commandes de lancement et vérification</h2>
+<table>
+<thead>
+<tr>
+<th>Commande</th>
+<th>Ce qu'elle indique</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ros2 run</code> ou <code>ros2 launch</code></td>
+<td>Pour lancer un nœud</td>
+</tr>
+<tr>
+<td><code>ros2 node list</code></td>
+<td>Les nœuds en cours d'exécution</td>
+</tr>
+<tr>
+<td><code>ros2 topic list</code></td>
+<td>Les topics existants</td>
+</tr>
+<tr>
+<td><code>ros2 topic info &lt;topic&gt; -v</code></td>
+<td>Le type, qui publie et qui s'abonne</td>
+</tr>
+<tr>
+<td><code>ros2 topic hz &lt;topic&gt;</code></td>
+<td>Le nombre de messages par seconde</td>
+</tr>
+<tr>
+<td><code>ros2 topic echo &lt;topic&gt;</code></td>
+<td>Le contenu des messages</td>
+</tr>
+<tr>
+<td><code>ros2 interface show &lt;type&gt;</code></td>
+<td>La définition d'un message</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Navigation de pied de page">
+        <a href="../01_principe/" class="btn btn-neutral float-left" title="1. Principe du projet"><span class="icon icon-circle-arrow-left"></span> Précédent</a>
+        <a href="../03_carte_ssh/" class="btn btn-neutral float-right" title="3. Travail sur la carte (SSH)">Suivant <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Générée avec <a href="https://www.mkdocs.org/">MkDocs</a> avec un <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a> fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../01_principe/" style="color: #fcfcfc">&laquo; Précédent</a></span>
+    
+    
+      <span><a href="../03_carte_ssh/" style="color: #fcfcfc">Suivant &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
