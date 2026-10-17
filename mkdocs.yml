@@ -1,0 +1,31 @@
+site_name: PRISE EN MAIN DU PROJET
+site_author: Majestueux DJOSSOU
+
+theme:
+  name: readthedocs
+  locale: fr
+
+nav:
+  - Accueil: index.md
+  - 1. Principe du projet: 01_principe.md
+  - 2. Méthode de travail: 02_methode.md
+  - 3. Travail sur la carte (SSH): 03_carte_ssh.md
+  - 4. my_custom_msgs: 04_my_custom_msgs.md
+  - 5. sidescan_processing: 05_sidescan_processing.md
+  - 6. cable_detection_cv: 06_cable_detection_cv.md
+  - 7. Bilan et suite: 07_suite.md
+
+markdown_extensions:
+  - admonition
+  - tables
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_div_format
+
+extra_javascript:
+  - https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js
+
+extra_css:
+  - css/extra.css
